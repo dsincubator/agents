@@ -62,7 +62,19 @@ Pick a $0.00 entry from <https://models.dev> at demo time.
 ollama launch opencode
 ```
 
-Download ollama at <https://ollama.com/download>. Contrast `ollama run tinyllama` (chat only, 2K context, below the 64k opencode minimum) with `ollama launch opencode --model llama3.2` (documented tool use, 128K context). Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library/llama3.2>. Wiring reference: <https://docs.ollama.com/integrations/opencode>
+Download ollama at <https://ollama.com/download>. On Linux or macOS, paste this in the terminal:
+
+```
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+On Windows, paste this in PowerShell:
+
+```
+irm https://ollama.com/install.ps1 | iex
+```
+
+Contrast `ollama run tinyllama` (chat only, 2K context, below the 64k opencode minimum) with `ollama launch opencode --model llama3.2` (documented tool use, 128K context). Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library/llama3.2>. Wiring reference: <https://docs.ollama.com/integrations/opencode>
 
 ## Resources
 
