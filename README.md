@@ -80,6 +80,8 @@ Contrast `ollama run tinyllama` (chat only, 2K context, below the 64k opencode m
 ollama pull tinyllama
 ```
 
+If a command fails with a connection error, the Ollama server is not running. Start it with `ollama serve` and verify with `ollama -v` in another terminal (<https://docs.ollama.com/linux>).
+
 Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library/llama3.2>. Wiring reference: <https://docs.ollama.com/integrations/opencode>
 
 ## Resources
