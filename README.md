@@ -24,10 +24,11 @@ The current cost of agentic-AI tools keeps many people from embracing an importa
 
 ### Agents and models
 
-What an agent is, what an LLM is, and which types exist.
+What an agent is, what an LLM is, and which types exist: cloud or local.
 
 * Agents are systems where LLMs dynamically direct their own processes and tool usage, as opposed to workflows with predefined code paths. Short version: LLMs autonomously using tools in a loop. Shortest: agent equals LLM plus harness. Diagrams: <https://www.anthropic.com/engineering/building-effective-agents>
 * Types, paid vs free: <https://models.dev> (free entries show $0.00; OpenCode Zen needs billing details per <https://opencode.ai/docs/providers/>).
+* Types, cloud vs local: cloud models run on a provider (see quotas below); local models run on your machine and never leave it (<https://ollama.com/search>).
 * Types, size and context: tinyllama at 1.1B and 638MB with 2K context (<https://ollama.com/library/tinyllama>) against 27b and 30b entries with 128K and larger contexts (<https://ollama.com/search?c=tools>, <https://ollama.com/library/llama3.2>).
 * Quotas: open the provider rate-limits page live at demo time and read the free-tier numbers there. No numbers frozen in these materials.
 
