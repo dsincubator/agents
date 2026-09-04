@@ -74,6 +74,14 @@ On Windows, paste this in PowerShell:
 irm https://ollama.com/install.ps1 | iex
 ```
 
+Sign in for cloud models:
+
+```
+ollama signin
+```
+
+Device keys at <https://ollama.com/settings/keys> let Ollama on macOS, Windows, and Linux access your account cloud models. Keys are added automatically when you sign in to the app or run `ollama signin`.
+
 Contrast `ollama run tinyllama` (chat only, 2K context, below the 64k opencode minimum) with `ollama launch opencode --model llama3.2` (documented tool use, 128K context). Pull the smallest model first:
 
 ```
