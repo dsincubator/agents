@@ -82,6 +82,41 @@ ollama pull tinyllama
 
 If a command fails with a connection error, the Ollama server is not running. Start it with `ollama serve` and verify with `ollama -v` in another terminal (<https://docs.ollama.com/linux>).
 
+Then let opencode do the local setup itself. Prompt:
+
+```
+Install ollama on this machine, pull a small local model, and configure yourself to use it.
+```
+
+<details><summary>Code</summary>
+
+```shell
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull tinyllama
+```
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "llama3.2": {
+          "name": "llama3.2"
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
 Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library/llama3.2>. Wiring reference: <https://docs.ollama.com/integrations/opencode>
 
 ## Resources
