@@ -135,3 +135,4 @@ Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library
 * Models.dev: [75+ LLM providers](https://models.dev)
 * Ollama and opencode: [integration docs](https://docs.ollama.com/integrations/opencode)
 * Agents, defined: [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+* Augmented coding patterns: <https://lexler.github.io/augmented-coding-patterns/>
