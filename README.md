@@ -1,132 +1,97 @@
 # Free agentic-AI
 
-The goal of this meetup is to help you get started using an agentic-AI workflow for free.
+The goal of this meetup is to help you get started using AI-agents for free.
 
-At the end of this meetup, you will be able to do things like this:
-
-* Explain what an agent and an LLM are and which types exist.
-* Install a popular open source agent and run free models, online and locally.
+By the end of this meetup you'll have a workflow that will take you a long way before
+feel the need to spend any money.
 
 ## Who is the audience?
 
-* Anyone who wants to start using AI-agents, e.g. data scientists and software developers.
+Anyone who used to write code by hand and wants to try an agentic AI workflow
+for free, e.g. data scientists and software developers.
 
 ## Why is it important?
 
-The current cost of agentic-AI tools keeps many people from embracing an important workflow.
+The agentic AI workflow is increasingly popular.
 
 ## Objectives
 
-* Understand what an agent, what an LLM is, and what types there are.
-* Install a popular open source agent and use it with free models, online and locally.
+* Understand what an AI-agent is.
+* Learn about some of the most popular AI-agents today.
+* Setup an AI-agent and use it with models on the cloud.
+* Setup and use models locally.
 
-## Demo
+### Agents and models 
 
-### Agents and models
+> An AI agent ... is an artificial intelligence program that can pursue goals, use software or other tools, and take actions.
+> -- [Wikipedia](https://en.wikipedia.org/wiki/AI_agent) 
 
-What an agent is, what an LLM is, and which types exist: cloud or local.
+That artificial intelligence program (a.k.a. LLM or just model) is like a brain.
+It can only chat with you. To take actions it needs additional software that
+acts like a harness.
 
-* Agents are systems where LLMs dynamically direct their own processes and tool usage, as opposed to workflows with predefined code paths. Short version: LLMs autonomously using tools in a loop. Shortest: agent equals LLM plus harness. Diagrams: <https://www.anthropic.com/engineering/building-effective-agents>
-* Types, paid vs free: <https://models.dev> (free entries show $0.00; OpenCode Zen needs billing details per <https://opencode.ai/docs/providers/>).
-* Types, cloud vs local: cloud models run on a provider (see quotas below); local models run on your machine and never leave it (<https://ollama.com/search>).
-* Types, size and context: tinyllama at 1.1B and 638MB with 2K context (<https://ollama.com/library/tinyllama>) against 27b and 30b entries with 128K and larger contexts (<https://ollama.com/search?c=tools>, <https://ollama.com/library/llama3.2>).
-* Quotas: open the provider rate-limits page live at demo time and read the free-tier numbers there. No numbers frozen in these materials.
-
-### Installing and running free
-
-Install a popular open source agent and run free models, online and locally.
-
-Try it in a docker container mounted at your working directory:
-
-```
-docker run -it --rm -w /demo -v "$(pwd):/demo" ghcr.io/anomalyco/opencode
+``` 
+Agent = LLM + Harness
 ```
 
-Or install it in your system:
+There are many [agents](https://www.morphllm.com/best-ai-coding-agents-2026) and
+[models](https://llm-stats.com/leaderboards/best-ai-for-coding).
+
+### Use opencode with a free model running on the cloud
+
+Try opencode with:
+
+```
+docker run -it --rm ghcr.io/anomalyco/opencode
+```
+
+Or [install it](https://opencode.ai/docs) following the instructions for your OS, e.g.: 
 
 ```
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-More options at <https://opencode.ai/docs>.
-
-Gotchas from a live run: minimal containers may lack curl, so run `apt-get update && apt-get install -y curl` first. After installing, reload the shell with `source ~/.bashrc` before running `opencode`.
+Then use it with some of the free models from opencode running on the cloud:
 
 ```
-/connect
 /models
 ```
 
-Pick a $0.00 entry from <https://models.dev> at demo time.
+You can also connect to a different model provider. For example, you may connect to free models from Google with:
 
 ```
-ollama launch opencode
+/connect
 ```
 
-Download ollama at <https://ollama.com/download>. On Linux or macOS, paste this in the terminal:
+You can get an API key from https://aistudio.google.com/api-keys
+
+### Use opencode with a free ollama model running locally
+
+You can use opencode to set this up for you, e.g.:
+
+> Install ollama and guide me through the setup to download and use the smallest model that can be used for an agentic workflkow with opencode.
+
+<details><summary>Or do it yourself</summary>
+
+Install [ollama](https://ollama.com/download) for your OS, e.g.:
 
 ```
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-On Windows, paste this in PowerShell:
-
-```
-irm https://ollama.com/install.ps1 | iex
-```
-
-Sign in for cloud models:
+Sign in with
 
 ```
 ollama signin
 ```
 
-Device keys at <https://ollama.com/settings/keys> let Ollama on macOS, Windows, and Linux access your account cloud models. Keys are added automatically when you sign in to the app or run `ollama signin`.
-
-Contrast `ollama run tinyllama` (chat only, 2K context, below the 64k opencode minimum) with `ollama launch opencode --model llama3.2` (documented tool use, 128K context). Pull the smallest model first:
+Then [browse models](https://ollama.com/search) and pull one, e.g.:
 
 ```
-ollama pull tinyllama
+ollama pull llama3.2:3b
 ```
 
-If a command fails with a connection error, the Ollama server is not running. Start it with `ollama serve` and verify with `ollama -v` in another terminal (<https://docs.ollama.com/linux>).
-
-Then let opencode do the local setup itself. Prompt:
-
-```
-Install ollama on this machine, pull a small local model, and configure yourself to use it.
-```
-
-<details><summary>Code</summary>
-
-```shell
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull tinyllama
-```
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      },
-      "models": {
-        "llama3.2": {
-          "name": "llama3.2"
-        }
-      }
-    }
-  }
-}
-```
-
-</details>
-
-Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library/llama3.2>. Wiring reference: <https://docs.ollama.com/integrations/opencode>
+And `/connect` it from inside opencode.
 
 ## Resources
 
@@ -136,3 +101,7 @@ Model pages: <https://ollama.com/library/tinyllama>, <https://ollama.com/library
 * Ollama and opencode: [integration docs](https://docs.ollama.com/integrations/opencode)
 * Agents, defined: [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 * Augmented coding patterns: <https://lexler.github.io/augmented-coding-patterns/>
+* [What is an agent](https://tidydesign.substack.com/p/what-is-an-agent)
+* [Trusted mini-agents](https://trustedminiagents.dev/)
+
+
