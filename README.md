@@ -12,8 +12,7 @@ for free, e.g., data scientists and software developers.
 
 ## Why is it important?
 
-The agentic AI workflow is increasingly popular.
-<!-- FIXME: Vague claim — add a source or make concrete (popular with whom, measured how?). -->
+AI already writes most code inside the leading labs ([Anthropic: >80%](https://www.anthropic.com/institute/recursive-self-improvement), [OpenAI: ~80%](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), [Google: 75%](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)), but the flagship tools cost [$20-200/month](https://claude.com/pricing). This meetup shows the free path.
 
 ## Objectives
 
