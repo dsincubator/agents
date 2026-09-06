@@ -12,14 +12,14 @@ for free, e.g., data scientists and software developers.
 
 ## Why is it important?
 
-A lot of people are now using AI agents to write some or all of their code (e.g., [80% at OpenAI](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), and [75% at Google](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)). One of the best AI agents today is Claude Code, but using it for real work [can easily cost significant money](https://claude.com/pricing). This meetup shows a good and free alternative so you can gain experience with this new way of working.
+A lot of people are now using AI agents to write some or all of their code. One of the best AI agents today is [Claude Code](https://claude.com/product/claude-code), but using it for real work [can cost a lot](https://claude.com/pricing). This meetup shows a good and free alternative so you can practice without worrying about cost.
 
 ## Objectives
 
 - Understand what an AI agent is.
-- Learn about some of the most popular AI agents today.
-- Set up an AI agent and use it with models on the cloud.
-- Set up and use models locally.
+- Install and get started with a good and free AI agent.
+- Set it up to use R and Python interactively.
+- Use it inside your IDE.
 
 ## Contents
 
