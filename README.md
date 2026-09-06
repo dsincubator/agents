@@ -12,7 +12,7 @@ for free, e.g., data scientists and software developers.
 
 ## Why is it important?
 
-AI already writes most code inside the leading labs ([Anthropic: &gt;80%](https://www.anthropic.com/institute/recursive-self-improvement), [OpenAI: ~80%](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), [Google: 75%](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)), but the flagship tools cost [$20-200/month](https://claude.com/pricing). This meetup shows the free path.
+A lot of people are now using AI agents to write some or all of their code (e.g., [80% at OpenAI](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), and [75% at Google](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)). One such tool we hear a lot about today is Claude Code, but it costs [$20-200/month](https://claude.com/pricing). This meetup shows free tools so that money does not stop you from gaining experience with this new way of working.
 
 ## Objectives
 
@@ -29,7 +29,7 @@ An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a large language model 
 
 $$ \text{Agent} = \text{LLM} + \text{Harness} $$
 
-By itself the LLM can guide you, but the one who takes action is still you.
+By itself, the LLM can guide you, but the one who takes action is still you.
 
 ```bash
 ollama run qwen2.5:7b
@@ -45,7 +45,7 @@ touch file.txt
 
 ````
 
-With a harness, the same LLM now can act on your behalf.
+With a harness, the same LLM can now act on your behalf.
 
 ```bash
 opencode
@@ -53,7 +53,7 @@ opencode
 
 ```
 ## User
- Write a new empty file.txt
+Write a new empty file.txt
 ## Assistant
 **Tool: write**
 ## Assistant
@@ -68,7 +68,7 @@ There are many [agents](https://www.morphllm.com/best-ai-coding-agents-2026) and
 [https://opencode.ai/](https://opencode.ai/)
 
 > **What is OpenCode?**  
-> OpenCode is an open source agent that helps you write and run code with any AI model.
+> OpenCode is an open-source agent that helps you write and run code with any AI model.
 >
 > **How much does OpenCode cost?**  
 > OpenCode is 100% free to use. It also comes with a set of free models. There might be additional costs if you connect any other provider.
@@ -79,13 +79,13 @@ You can try `opencode` in a Docker container with:
 docker run -it --rm ghcr.io/anomalyco/opencode
 ```
 
-Or [install it](https://opencode.ai/docs) following the instructions for your OS, for example with:
+Or [install it](https://opencode.ai/docs) following the instructions for your OS, for example:
 
 ```
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-Launch it with:
+Launch it:
 
 ```
 opencode
@@ -93,11 +93,11 @@ opencode
 
 ![](img/opencode.png)
 
-Type `/` to see all you can do. For example, use `/models` and `/connect` to switch to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
+Type `/` to see everything you can do. For example, use `/models` and `/connect` to switch to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
 
 [Learn more](https://opencode.ai/docs/tui/)
 
-### Setup mcp-repl to use R and Python interactively
+### Set up mcp-repl to use R and Python interactively
 
 Coding agents typically run R or Python code with `Rscript -e` or `python -c`.
 
@@ -150,8 +150,8 @@ Running `exists("x")` — noting Rscript sessions are isolated, so chaining with
 ```
 [1] FALSE
 ```
-Each `Rscript -e` invocation is an isolated process, so `x <- 1` from previous call does not persist.
-In same session:
+Each `Rscript -e` invocation is an isolated process, so `x <- 1` from the previous call does not persist.
+In the same session:
 ```
 Rscript -e 'x <- 1; print(exists("x"))'
 [1] TRUE
