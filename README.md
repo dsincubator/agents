@@ -25,7 +25,7 @@ AI already writes most code inside the leading labs ([Anthropic: &gt;80%](https:
 
 ### Agents and models
 
-An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a Large Language Model (LLM) plus additional software (harness) that allows it to act on your behalf.
+An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a large language model (LLM) plus additional software (harness) that allows it to act on your behalf.
 
 $$ \text{Agent} = \text{LLM} + \text{Harness} $$
 
@@ -45,7 +45,7 @@ touch file.txt
 
 ````
 
-With an harness, the same LLM now can act on your behalf.
+With a harness, the same LLM now can act on your behalf.
 
 ```bash
 opencode
@@ -73,7 +73,7 @@ There are many [agents](https://www.morphllm.com/best-ai-coding-agents-2026) and
 > **How much does OpenCode cost?**  
 > OpenCode is 100% free to use. It also comes with a set of free models. There might be additional costs if you connect any other provider.
 
-You can try `opencode` in a docker container with:
+You can try `opencode` in a Docker container with:
 
 ```
 docker run -it --rm ghcr.io/anomalyco/opencode
@@ -93,7 +93,7 @@ opencode
 
 ![](img/opencode.png)
 
-Type `/` to see all you can do. For example switch `/models` and `/connect` to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
+Type `/` to see all you can do. For example, use `/models` and `/connect` to switch to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
 
 [Learn more](https://opencode.ai/docs/tui/)
 
@@ -104,9 +104,9 @@ Coding agents typically run R or Python code with `Rscript -e` or `python -c`.
 > [This] keeps forcing the agent to rebuild context. mcp-repl keeps the session open instead: variables, loaded packages, plots, and other state stay available until you or the model reset.  
 > -- [https://github.com/posit-dev/mcp-repl](https://github.com/posit-dev/mcp-repl)
 
-Now you can ask an AI agent to "read https://github.com/posit-dev/mcp-repl and setup mcp-repl for opencode."
+Now you can ask an AI agent to "read https://github.com/posit-dev/mcp-repl and set up mcp-repl for opencode."
 
-These examples show the behaviour with and without that tool:
+These examples show the behavior with and without that tool:
 
 - With mcp-repl enabled
 
@@ -160,7 +160,7 @@ Rscript -e 'x <- 1; print(exists("x"))'
 
 ### OpenCode in an IDE: RStudio and Positron
 
-OpenCode (and most) AI agents can run in any terminal, including inside IDEs like RStudio or Positron.
+OpenCode, like most AI agents, can run in any terminal, including inside IDEs like RStudio or Positron.
 
 ![](img/rstudio.png)
 
