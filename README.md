@@ -2,21 +2,23 @@
 
 The goal of this meetup is to help you get started using AI agents for free.
 
-By the end of this meetup you'll have a workflow that will take you a long way before
-you feel the need to spend any money.
+By the end of this meetup you'll have a workflow that will take you a long way
+before you feel the need to spend any money.
 
 ## Who is the audience?
 
-Anyone who writes code by hand and wants to try an agentic AI workflow
-for free, e.g., data scientists and software developers.
+Anyone curious about AI agents, particularly people who want to write code or
+use code to analyze data.
 
 ## Why is it important?
 
-A lot of people are now using AI agents to write some or all of their code. One of the best AI agents today is [Claude Code](https://claude.com/product/claude-code), but using it for real work [can cost a lot](https://claude.com/pricing). This meetup shows a good and free alternative so you can practice without worrying about cost.
+Understanding what AI agents are can help you adapt to an increasingly popular
+way of executing your goals. Doing this for free helps you experiment without
+worrying about cost.
 
 ## Objectives
 
-- Understand what an AI agent is.
+- Understand what's an AI agent.
 - Install and get started with a good and free AI agent.
 - Set it up to use R and Python interactively.
 - Use it inside your IDE.
@@ -25,75 +27,87 @@ A lot of people are now using AI agents to write some or all of their code. One 
 
 ### Agents and models
 
-An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a large language model (LLM) plus additional software (harness) that allows it to act on your behalf.
+An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a large language model
+(LLM) plus additional software (harness) that allows it to execute your goals.
 
 $$ \text{Agent} = \text{LLM} + \text{Harness} $$
 
-By itself, the LLM can guide you, but the one who takes action is still you.
+Without a harness an LLM can guide you towards your goals, but the one executing
+them is still you.
 
 ```bash
+# https://ollama.com/download
 ollama run qwen2.5:7b
 ```
 
-````txt
+````markdown
 >>> Write a new empty file.txt
-To create an empty file named `file.txt` on a Unix-like system (such as Linux or macOS), you can use the following command in the terminal:
+To create an empty file named `file.txt` on a Unix-like system (such as Linux or 
+macOS), you can use the following command in the terminal:
 
 ```bash
 touch file.txt
 ```
-
 ````
 
-With a harness, the same LLM can now act on your behalf.
+The same LLM but with a harness can use tools and execute your goals.
 
 ```bash
+# https://opencode.ai/download
 opencode
 ```
 
-```
+```markdown
 ## User
 Write a new empty file.txt
+
 ## Assistant
 **Tool: write**
+
 ## Assistant
 Created an empty file named file.txt in the current directory.
 ```
 
 There are many [agents](https://www.morphllm.com/best-ai-coding-agents-2026) and
-[models](https://llm-stats.com/leaderboards/best-ai-for-coding). Here we'll focus on a few that are useful and free.
+[models](https://llm-stats.com/leaderboards/best-ai-for-coding). Here we'll
+focus on a few that are useful and free.
 
 ### Get started with OpenCode
 
 [https://opencode.ai/](https://opencode.ai/)
 
 > **What is OpenCode?**  
-> OpenCode is an open-source agent that helps you write and run code with any AI model.
+> OpenCode is an open-source agent that helps you write and run code with any AI
+> model.
 >
 > **How much does OpenCode cost?**  
-> OpenCode is 100% free to use. It also comes with a set of free models. There might be additional costs if you connect any other provider.
+> OpenCode is 100% free to use. It also comes with a set of free models. There
+> might be additional costs if you connect any other provider.
 
 You can try `opencode` in a Docker container with:
 
-```
+```bash
 docker run -it --rm ghcr.io/anomalyco/opencode
 ```
 
-Or [install it](https://opencode.ai/docs) following the instructions for your OS, for example:
+Or [install it](https://opencode.ai/docs) following the instructions for your
+OS, for example:
 
-```
+```bash
 curl -fsSL https://opencode.ai/install | bash
 ```
 
 Launch it:
 
-```
+```bash
 opencode
 ```
 
 ![](img/opencode.png)
 
-Type `/` to see everything you can do. For example, use `/models` and `/connect` to switch to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
+Type `/` to see everything you can do. For example, use `/models` and `/connect`
+to switch to a provider like Google with an API key from
+[Google AI Studio](https://aistudio.google.com/api-keys).
 
 [Learn more](https://opencode.ai/docs/tui/)
 
@@ -101,16 +115,19 @@ Type `/` to see everything you can do. For example, use `/models` and `/connect`
 
 Coding agents typically run R or Python code with `Rscript -e` or `python -c`.
 
-> [This] keeps forcing the agent to rebuild context. mcp-repl keeps the session open instead: variables, loaded packages, plots, and other state stay available until you or the model reset.  
+> [This] keeps forcing the agent to rebuild context. mcp-repl keeps the session
+> open instead: variables, loaded packages, plots, and other state stay
+> available until you or the model reset.  
 > -- [https://github.com/posit-dev/mcp-repl](https://github.com/posit-dev/mcp-repl)
 
-Now you can ask an AI agent to "read https://github.com/posit-dev/mcp-repl and set up mcp-repl for opencode."
+Now you can ask an AI agent to "read https://github.com/posit-dev/mcp-repl and
+set up mcp-repl for opencode."
 
 These examples show the behavior with and without that tool:
 
 - With mcp-repl enabled
 
-````text
+````markdown
 ## User
 Write a new empty file.txt
 
@@ -123,7 +140,7 @@ Created an empty file named file.txt in the current directory.
 
 - With mcp-repl disabled
 
-````text
+````markdown
 ## User
 Run x <- 1 in R
 
@@ -160,7 +177,8 @@ Rscript -e 'x <- 1; print(exists("x"))'
 
 ### OpenCode in an IDE: RStudio and Positron
 
-OpenCode, like most AI agents, can run in any terminal, including inside IDEs like RStudio or Positron.
+OpenCode, like most AI agents, can run in any terminal, including inside IDEs
+like RStudio or Positron.
 
 ![](img/rstudio.png)
 
@@ -172,7 +190,4 @@ Now go ahead, build something useful and have fun!
 
 - [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent)
 - [OpenCode](https://opencode.ai)
-- [Ollama](https://docs.ollama.com/quickstart)
-
-
-
+- [Ollama Quickstart](https://docs.ollama.com/quickstart)
