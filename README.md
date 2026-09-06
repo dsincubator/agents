@@ -1,4 +1,4 @@
-# Free agentic AI
+# Get started with AI agents
 
 The goal of this meetup is to help you get started using AI agents for free.
 
@@ -12,95 +12,166 @@ for free, e.g., data scientists and software developers.
 
 ## Why is it important?
 
-AI already writes most code inside the leading labs ([Anthropic: >80%](https://www.anthropic.com/institute/recursive-self-improvement), [OpenAI: ~80%](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), [Google: 75%](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)), but the flagship tools cost [$20-200/month](https://claude.com/pricing). This meetup shows the free path.
+AI already writes most code inside the leading labs ([Anthropic: &gt;80%](https://www.anthropic.com/institute/recursive-self-improvement), [OpenAI: ~80%](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), [Google: 75%](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)), but the flagship tools cost [$20-200/month](https://claude.com/pricing). This meetup shows the free path.
 
 ## Objectives
 
-* Understand what an AI agent is.
-* Learn about some of the most popular AI agents today.
-* Set up an AI agent and use it with models on the cloud.
-* Set up and use models locally.
+- Understand what an AI agent is.
+- Learn about some of the most popular AI agents today.
+- Set up an AI agent and use it with models on the cloud.
+- Set up and use models locally.
 
 ## Contents
 
 ### Agents and models
 
-> An AI agent ... is an artificial intelligence program that can pursue goals, use software or other tools, and take actions.
-> -- [Wikipedia](https://en.wikipedia.org/wiki/AI_agent)
+An [AI agent](https://en.wikipedia.org/wiki/AI_agent) is a Large Language Model (LLM) plus additional software (harness) that allows it to act on your behalf.
 
-That artificial intelligence program (a.k.a. LLM or just model) is like a brain.
-It can only chat with you. To take actions it needs additional software that
-acts like a harness.
+$$ \text{Agent} = \text{LLM} + \text{Harness} $$
 
-``` 
-Agent = LLM + Harness
+By itself the LLM can guide you, but the one who takes action is still you.
+
+```bash
+ollama run qwen2.5:7b
+```
+
+````txt
+>>> Write a new empty file.txt
+To create an empty file named `file.txt` on a Unix-like system (such as Linux or macOS), you can use the following command in the terminal:
+
+```bash
+touch file.txt
+```
+
+````
+
+With an harness, the same LLM now can act on your behalf.
+
+```bash
+opencode
+```
+
+```
+## User
+ Write a new empty file.txt
+## Assistant
+**Tool: write**
+## Assistant
+Created an empty file named file.txt in the current directory.
 ```
 
 There are many [agents](https://www.morphllm.com/best-ai-coding-agents-2026) and
-[models](https://llm-stats.com/leaderboards/best-ai-for-coding).
+[models](https://llm-stats.com/leaderboards/best-ai-for-coding). Here we'll focus on a few that are useful and free.
 
-### Use opencode with a free model running on the cloud
+### Get started with OpenCode
 
-Try opencode with:
+[https://opencode.ai/](https://opencode.ai/)
+
+> **What is OpenCode?**  
+> OpenCode is an open source agent that helps you write and run code with any AI model.
+>
+> **How much does OpenCode cost?**  
+> OpenCode is 100% free to use. It also comes with a set of free models. There might be additional costs if you connect any other provider.
+
+You can try `opencode` in a docker container with:
 
 ```
 docker run -it --rm ghcr.io/anomalyco/opencode
 ```
 
-Or [install it](https://opencode.ai/docs) following the instructions for your OS, e.g.:
+Or [install it](https://opencode.ai/docs) following the instructions for your OS, for example with:
 
 ```
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-Then use it with some of the free models from opencode running on the cloud:
+Launch it with:
 
 ```
-/models
+opencode
 ```
 
-You can also connect to a different model provider. For example, you can connect to free models from Google with:
-<!-- FIXME: Ambiguous — which Google models (names/quotas change often)? Specify or link the list. -->
+![](img/opencode.png)
 
+Type `/` to see all you can do. For example switch `/models` and `/connect` to a provider like Google with an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
+
+[Learn more](https://opencode.ai/docs/tui/)
+
+### Setup mcp-repl to use R and Python interactively
+
+Coding agents typically run R or Python code with `Rscript -e` or `python -c`.
+
+> [This] keeps forcing the agent to rebuild context. mcp-repl keeps the session open instead: variables, loaded packages, plots, and other state stay available until you or the model reset.  
+> -- [https://github.com/posit-dev/mcp-repl](https://github.com/posit-dev/mcp-repl)
+
+Now you can ask an AI agent to "read https://github.com/posit-dev/mcp-repl and setup mcp-repl for opencode."
+
+These examples show the behaviour with and without that tool:
+
+- With mcp-repl enabled
+
+````text
+## User
+Write a new empty file.txt
+
+## Assistant
+**Tool: write**
+
+## Assistant
+Created an empty file named file.txt in the current directory.
+````
+
+- With mcp-repl disabled
+
+````text
+## User
+Run x <- 1 in R
+
+## Assistant
+Running `x <- 1` in R.
+**Tool: bash**
+
+## Assistant
+Executed `x <- 1` in R via `Rscript`:
 ```
-/connect
+[1] 1
 ```
+`x` assigned value `1` successfully.
 
-You can get an API key from [Google AI Studio](https://aistudio.google.com/api-keys).
+## User
+Now run exists("x")
 
-### Use opencode with a free Ollama model running locally
+## Assistant
+Running `exists("x")` — noting Rscript sessions are isolated, so chaining with previous assignment.
+**Tool: bash**
 
-You can use opencode to set this up for you, e.g.:
-
-> Install Ollama and guide me through the setup to download and use the smallest model that can be used for an agentic workflow with opencode.
-<!-- FIXME: Ambiguous — "smallest capable model" changes over time. Name the model you tested or state how to choose one. -->
-
-<details>
-<summary>Or do it yourself</summary>
-
-Install [Ollama](https://ollama.com/download) for your OS, e.g.:
-
+## Assistant
+`Rscript -e 'print(exists("x"))'` returns:
 ```
-curl -fsSL https://ollama.com/install.sh | sh
+[1] FALSE
 ```
-
-Then [browse models](https://ollama.com/search) and pull one, e.g.:
-
+Each `Rscript -e` invocation is an isolated process, so `x <- 1` from previous call does not persist.
+In same session:
 ```
-ollama pull llama3.2:3b
+Rscript -e 'x <- 1; print(exists("x"))'
+[1] TRUE
 ```
+````
 
-And `/connect` it from inside opencode.
+### OpenCode in an IDE: RStudio and Positron
 
-</details>
+OpenCode (and most) AI agents can run in any terminal, including inside IDEs like RStudio or Positron.
+
+![](img/rstudio.png)
+
+![](img/positron.png)
+
+Now go ahead, build something useful and have fun!
 
 ## Resources
 
-* opencode: <https://opencode.ai>
-* Orca: [free, open-source agent IDE](https://www.onorca.dev/) ([MIT](https://github.com/stablyai/orca)) to run opencode and other agents in parallel worktrees.
-* Agents, defined: [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
-* Augmented coding patterns: <https://lexler.github.io/augmented-coding-patterns/>
-* [What is an agent](https://tidydesign.substack.com/p/what-is-an-agent)
-* [Trusted mini-agents](https://trustedminiagents.dev/)
+- [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent)
+- [OpenCode](https://opencode.ai)
+
 
 
