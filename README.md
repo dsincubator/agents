@@ -172,6 +172,7 @@ Now go ahead, build something useful and have fun!
 
 - [What is an agent?](https://tidydesign.substack.com/p/what-is-an-agent)
 - [OpenCode](https://opencode.ai)
+- [Ollama](https://docs.ollama.com/quickstart)
 
 
 
