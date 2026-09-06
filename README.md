@@ -12,7 +12,7 @@ for free, e.g., data scientists and software developers.
 
 ## Why is it important?
 
-A lot of people are now using AI agents to write some or all of their code (e.g., [80% at OpenAI](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), and [75% at Google](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)). One such tool we hear a lot about today is Claude Code, but it costs [$20-200/month](https://claude.com/pricing). This meetup shows free tools so that money does not stop you from gaining experience with this new way of working.
+A lot of people are now using AI agents to write some or all of their code (e.g., [80% at OpenAI](https://www.businessinsider.com/openai-president-ai-now-writing-80-percent-of-code-2026-5), and [75% at Google](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/)). One of the best AI agents today is Claude Code, but using it for real work [can easily cost significant money](https://claude.com/pricing). This meetup shows a good and free alternative so you can gain experience with this new way of working.
 
 ## Objectives
 
